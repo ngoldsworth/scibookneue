@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{microtype}
+\usepackage{mathpazo}
+\usepackage{enumitem}
+\usepackage{cleveref}
+	\crefalias{cex}{Example}
+
+\usepackage{xcolor}
+	\definecolor{accol}{rgb}{139,0,0}
+	% Defining an accent color
+
+\usepackage{amssymb}
+\usepackage{amsthm}
+	\newtheoremstyle{accentcolorthm}
+		{} % Space above
+		{} % Space below
+		{} % Body font
+		{-2em} % Indent amount
+		{\color{accol}} % Theorem head formatting
+		{:} % Punctuation following the theorem head
+		{.5em} % Space after the theorem head
+		{} % Theorem head spec
+	
+	\theoremstyle{accentcolorthm}
+	\newtheorem{cdef}{Definition}[section]
+
+	\theoremstyle{accentcolorthm}
+	\newtheorem{cexamp}{Example}[section]
+
+
+
+\begin{document}
+\section{Classification of Singularities}
+
+Many functions have singularities at $z=0$, but not all singularities are equal.
+For example, $(\exp(z)-1)/z$, $z^{-4}$, and $\exp({1/2z})$ all behave differntly
+near $z=0$.
+We will frequently consider functions in this chapter that are holomorphic in a
+disk except at its center (usually because that’s where asingularity lies), and
+it will be handy to define the \textbf{punctured disk} with center $z_0$ and radius $R$,
+\[ D_\times [z_0, R] := \left\{ z \in \mathbb{C}  : 0 < |z-z_0| < R\right\}  = D[z_0,R] \backslash \{z_0\} \]
+
+
+\begin{cdef} 
+	If $f$ is holomorphic in the punctured disk $D_\times[z_0, R]$ for some $R>0$
+	but is not holomorpic at $z=z_0$, then $z_0$ is an
+	\textbf{isolated singularity} of $f$. We say that the singularity $z_0$ is
+	\begin{enumerate}[label=(\alph*)]
+		\item \textbf{removeable} if there exists a function $g$ holomorphic in $D[z_0,R]$
+			such that $f=g$ in $D_\times[z_0, R]$, 
+		\item a \textbf{pole} if $\displaystyle\lim_{z\to z_0} = \infty$, 
+		\item \textbf{essential} if neither a pole or removeable
+\end{enumerate}
+\end{cdef}
+
+\begin{cexamp}\label{ex:powers}
+	Let $f: \mathbb{C} \backslash {0} \to \mathbb{C}$ be given by $f(z) = (\exp(z)-1)/z$.
+	Since 
+	\[ \exp(z)-1 = \sum_{k\geq 1}\  \frac{z^k}{k!}, \]
+	the function $g:\mathbb{C} \to \mathbb{C}$ is defined by
+	\[ g(z) = \sum_{k\geq 0}\  \frac{z^k}{(k+1)!}, \]
+	which is entire (because the power series converges in $\mathbb{C}$) agrees with $f$ in
+	$\mathbb{C}\backslash \{0\}$. Thus $f$ has a singularity at $0$.
+
+\end{cexamp}
+
+\Cref{ex:powers} is pretty neat.
+
+
+
+
+\end{document}
+
