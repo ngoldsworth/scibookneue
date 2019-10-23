@@ -1,7 +1,9 @@
 \documentclass{article}
+\usepackage{tikz}
 \usepackage{microtype}
 \usepackage{mathpazo}
 \usepackage{enumitem}
+\usepackage[margin=.75in,]{geometry}
 \usepackage{cleveref}
 	\crefalias{cex}{Example}
 
@@ -33,10 +35,10 @@
 \section{Classification of Singularities}
 
 Many functions have singularities at $z=0$, but not all singularities are equal.
-For example, $(\exp(z)-1)/z$, $z^{-4}$, and $\exp({1/2z})$ all behave differntly
+For example, $(\exp(z)-1)/z$, $z^{-4}$, and $\exp({1/2z})$ all behave differently
 near $z=0$.
 We will frequently consider functions in this chapter that are holomorphic in a
-disk except at its center (usually because that’s where asingularity lies), and
+disk except at its center (usually because that’s where a singularity lies), and
 it will be handy to define the \textbf{punctured disk} with center $z_0$ and radius $R$,
 \[ D_\times [z_0, R] := \left\{ z \in \mathbb{C}  : 0 < |z-z_0| < R\right\}  = D[z_0,R] \backslash \{z_0\} \]
 
@@ -46,10 +48,10 @@ it will be handy to define the \textbf{punctured disk} with center $z_0$ and rad
 	but is not holomorpic at $z=z_0$, then $z_0$ is an
 	\textbf{isolated singularity} of $f$. We say that the singularity $z_0$ is
 	\begin{enumerate}[label=(\alph*)]
-		\item \textbf{removeable} if there exists a function $g$ holomorphic in $D[z_0,R]$
+		\item \textbf{removable} if there exists a function $g$ holomorphic in $D[z_0,R]$
 			such that $f=g$ in $D_\times[z_0, R]$, 
 		\item a \textbf{pole} if $\displaystyle\lim_{z\to z_0} = \infty$, 
-		\item \textbf{essential} if neither a pole or removeable
+		\item \textbf{essential} if neither a pole or removable
 \end{enumerate}
 \end{cdef}
 \begin{proof}
@@ -67,7 +69,6 @@ it will be handy to define the \textbf{punctured disk} with center $z_0$ and rad
 	$\mathbb{C}\backslash \{0\}$. Thus $f$ has a singularity at $0$.
 
 \end{cexamp}
-
 
 
 

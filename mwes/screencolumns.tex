@@ -1,0 +1,30 @@
+\documentclass[10pt]{article}
+\usepackage{lipsum}
+\usepackage{mathpazo}
+\usepackage[
+	showframe,
+	paperheight=10.5in,
+	paperwidth=16.8in,
+	left=2.5in,
+	right=6in,
+]{geometry}
+\usepackage{titlesec}
+
+% stolen from https://tex.stackexchange.com/questions/302658/section-headings-in-a-separate-column
+
+\titleformat{\section}[leftmargin]
+  {\normalfont\bfseries\filright}
+  {\thesection}
+  {1em}
+  {}
+\titlespacing*{\section}
+  {3cm}
+  {2ex plus .2ex minus .2ex}
+  {1sp}% should be 0, but it must be positive
+
+
+\begin{document}
+\section{In which I try to create a better typsetting system for math titles and equations but probably wont ever actually ger atound to that}
+Hi \lipsum[2]
+
+\end{document}
