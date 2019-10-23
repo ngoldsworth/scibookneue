@@ -27,3 +27,5 @@ The challenge then is to create a `LaTeX` class that scientific writes already f
 better-looking, textbooks for both screens and print, while still being able to take advantage of the many strengths `LaTeX` offers.
 
 
+#### Helpful links:
+[https://tex.stackexchange.com/questions/59244/theorem-name-numbering-in-margin]

@@ -3,7 +3,10 @@
 \usepackage{xcolor}
 	\definecolor{accol}{rgb}{139,0,0}
 
-\usepackage{libertine}
+	\usepackage{microtype}
+\usepackage{ebgaramond}
+\usepackage{FiraSans}
+\usepackage{FiraMono}
 
 \usepackage{lipsum}
 
@@ -14,7 +17,7 @@
 	paperheight=10.5in,
 	paperwidth=16.8in,
 	marginparwidth=5in,
-	left=3in,
+	left=3.5in,
 	right=6in,
 	bottom=.5in,
 ]{geometry}
@@ -23,18 +26,26 @@
 % stolen from https://tex.stackexchange.com/questions/302658/section-headings-in-a-separate-column
 
 \titleformat{\section}[leftmargin]
-{\filleft\LARGE\normalfont\bfseries}
+{\filleft\Large\sffamily\bfseries}
 {\color{accol}{\hfill\thesection}}
   {0pt}
   {\newline\filleft\color{accol}}
 \titlespacing*{\section}
   {6cm}
   {2ex plus .2ex minus .2ex}
-  {1em} % Determines the spacing between the "left margin column" and body type
+  {2em} % Determines the spacing between the "left margin column" and body type
 
 
 \begin{document}
-\section{Residues and the Cauchy Residue Theorem}
-Hi \lipsum[2]
+\section{Residues and the\\Cauchy Residue Theorem}
+\lipsum[2]
+
+\begin{equation}
+\sum_i  \mathrm{Res}\left(f, z_i\right) = \frac{1}{2\pi i} \int_\gamma f(z) \mathrm{d}z
+\end{equation}
+
+\section{Coding the Web}
+\texttt{\lipsum[1]}
+
 
 \end{document}
