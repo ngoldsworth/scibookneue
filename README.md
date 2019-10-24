@@ -26,6 +26,11 @@ and most students purchase or are given a digital copy as a PDF as a green, chea
 The challenge then is to create a `LaTeX` class that scientific writes already familiar with `LaTeX` can use to create cleaner,
 better-looking, textbooks for both screens and print, while still being able to take advantage of the many strengths `LaTeX` offers.
 
+## Design Goals
+
+ - Simultaneously allow for outputs formatted for screens and for print. 
+ - Take advantage `LaTeX`'s robust hierarchical structuring and intra-document referencing to make on-screen navigation easier. 
+ - Produce clean, easy-to-read, PDFs
 
 #### Helpful links:
 [https://tex.stackexchange.com/questions/59244/theorem-name-numbering-in-margin]
