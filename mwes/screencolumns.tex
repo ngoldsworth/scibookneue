@@ -1,41 +1,84 @@
 \documentclass[10pt]{article}
-
+\usepackage{float}
 \usepackage{xcolor}
-	\definecolor{accol}{rgb}{139,0,0}
+\definecolor{accol}{rgb}{139,0,0} % Defining the accent color (red by default)
 
-	\usepackage{microtype}
-\usepackage{ebgaramond}
-\usepackage{FiraSans}
-\usepackage{FiraMono}
+%Typography
+\usepackage{microtype}
+\usepackage{mathpazo}% Default Serif     font
+\usepackage{FiraSans}% Default SansSerif font
+\usepackage{FiraMono}% Default Monospace font
 
-\usepackage{lipsum}
-
-\usepackage{mathpazo}
-
-\usepackage[
-	showframe,
+\usepackage[% Page Setup
+	% showframe,
 	paperheight=10.5in,
 	paperwidth=16.8in,
 	marginparwidth=5in,
 	left=3.5in,
 	right=6in,
 	bottom=.5in,
+	top=1in,
 ]{geometry}
+
+% TITLE FORMATTING
 \usepackage{titlesec}
-
 % stolen from https://tex.stackexchange.com/questions/302658/section-headings-in-a-separate-column
+% and modified
+     %% SECTIONS STYLING
+     \titleformat{\section}[leftmargin]
+	{\filleft\LARGE\sffamily\bfseries}
+	{\hfill\thesection}
+	  {0pt}
+	  {\newline\filleft}
+	\titlespacing*{\section}
+	  {6cm}
+	  {2ex plus .2ex minus .2ex}
+	  {2em} % Determines the spacing between the "left margin column" and body type
 
-\titleformat{\section}[leftmargin]
-{\filleft\Large\sffamily\bfseries}
-{\color{accol}{\hfill\thesection}}
-  {0pt}
-  {\newline\filleft\color{accol}}
-\titlespacing*{\section}
-  {6cm}
-  {2ex plus .2ex minus .2ex}
-  {2em} % Determines the spacing between the "left margin column" and body type
+     %% SUBSECTIONS STYLING
+     \titleformat{\subsection}[leftmargin]
+	{\vspace{1em}\filleft\large\bfseries\sffamily}% The vspace here keeps short subsections' titles from overlapping
+	{\hfill\thesubsection}
+	  {0pt}
+	  {\newline\filleft}
+	\titlespacing*{\subsection}
+	  {6cm}
+	  {2ex plus .2ex minus .2ex}
+	  {2em} % Determines the spacing between the "left margin column" and body type
 
 
+\usepackage{amsmath}
+\usepackage[amsmath]{ntheorem}
+	% Define new theorem-style
+	\setlength{\labelsep}{2em}
+	\makeatletter
+	\newtheoremstyle{marginlab}
+	{\item[\theorem@headerfont \llap{##1 ##2}]}%
+	{\item[\theorem@headerfont \llap{##1 ##2}| ##3\theorem@separator\hskip\labelsep]}%
+	\makeatother
+
+	% Definitions:
+	\theoremstyle{marginlab}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{\gamma}
+	\theoremprework{}
+	\theorempostwork{}
+	\theoremseparator{}
+	\newtheorem{margindef}{\color{accol}{Definition}}
+	\numberwithin{margindef}{section}
+
+	% Theorems
+	\theoremstyle{marginlab}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{}
+	\theoremprework{{\color{accol}\hrule\smallskip}}
+	\theorempostwork{{\color{accol}\hrule\smallskip}}
+	\theoremseparator{:}
+	\newtheorem{marginthm}{\color{accol}{Theorem}}
+	\numberwithin{marginthm}{section}
+	  
+
+\usepackage{lipsum}
 \begin{document}
 \section{Residues and the\\Cauchy Residue Theorem}
 \lipsum[2]
@@ -43,9 +86,34 @@
 \begin{equation}
 \sum_i  \mathrm{Res}\left(f, z_i\right) = \frac{1}{2\pi i} \int_\gamma f(z) \mathrm{d}z
 \end{equation}
+\lipsum[1]\\
 
-\section{Coding the Web}
-\texttt{\lipsum[1]}
+\subsection{Stuff and even more things} This is a thing
+\subsection{More Stuff}
+
+What that actually worked. I am surprised. \lipsum[1]
+\begin{margindef}
+A {\color{accol}{residue}} is the sticky thing left over after doing a complex pancake integration via syrup inversion.
+We say that a residue is stubborn if it won't go away, even after complex differentiation and large-scale sticky-battle tactics are applied. Contrastingly, we say that a residue is yummy if it tastes great and presents no elimination complications.
+\end{margindef}
+
+\begin{marginthm}
+	This is the end of the world as I know it, and I feel fine.
+	\marginpar{That's Great it starts with an earthquake}
+\end{marginthm}
+
+Lenny Bruce is not afraid. \lipsum[8]
+\marginpar{
+	\begin{table}[H]
+		\caption{This is a table in the margin. Neat!}
+		\begin{tabular}{r|l}
+			Up & Down\\
+			Hot & Cold\\
+			Black & White\\
+			Wrong & Right
+		\end{tabular}
+	\end{table}
+}
 
 
 \end{document}
