@@ -1,0 +1,11 @@
+% Things common to both the Screen format and the Print format for scibookneue
+
+%Typography
+\RequirePackage{microtype}
+\RequirePackage{mathpazo}% Default Serif     font
+\RequirePackage{FiraSans}% Default SansSerif font
+% \RequirePackage{FiraMono}% Default Monospace font, maybe not?
+
+\RequirePackage{xcolor}
+	\definecolor{accent}{rgb}{1,0,0} % Defining the accent color (red by default)
+

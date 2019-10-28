@@ -1,19 +1,20 @@
 \documentclass[10pt]{article}
 \usepackage{float}
 \usepackage{xcolor}
-\definecolor{accol}{rgb}{139,0,0} % Defining the accent color (red by default)
+\definecolor{accol}{rgb}{1,0,0} % Defining the accent color (red by default)
 
 %Typography
 \usepackage{microtype}
 \usepackage{mathpazo}% Default Serif     font
 \usepackage{FiraSans}% Default SansSerif font
-\usepackage{FiraMono}% Default Monospace font
+%\usepackage{FiraMono}% Default Monospace font
 
 \usepackage[% Page Setup
-	% showframe,
+	%showframe,
 	paperheight=10.5in,
 	paperwidth=16.8in,
 	marginparwidth=5in,
+	marginparsep=3em,
 	left=3.5in,
 	right=6in,
 	bottom=.5in,
@@ -78,15 +79,53 @@
 	\numberwithin{marginthm}{section}
 	  
 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{.99, .96, .96}
+
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Program}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    fillcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{accol},
+    numberstyle=\tiny\sffamily\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=right,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
 \usepackage{lipsum}
 \begin{document}
 \section{Residues and the\\Cauchy Residue Theorem}
+\marginpar{
+\lstinputlisting[language=Python,
+		%firstline=16,
+		lastline=21,
+		caption= {numerical analysis of the Goldbach conjecture for odd numbers under 6000.},
+		label={lst:cal}
+		]{euler.py}
+	}
 \lipsum[2]
 
 \begin{equation}
 \sum_i  \mathrm{Res}\left(f, z_i\right) = \frac{1}{2\pi i} \int_\gamma f(z) \mathrm{d}z
 \end{equation}
-\lipsum[1]\\
+\lipsum[1]
 
 \subsection{Stuff and even more things} This is a thing
 \subsection{More Stuff}
@@ -102,18 +141,7 @@ We say that a residue is stubborn if it won't go away, even after complex differ
 	\marginpar{That's Great it starts with an earthquake}
 \end{marginthm}
 
-Lenny Bruce is not afraid. \lipsum[8]
-\marginpar{
-	\begin{table}[H]
-		\caption{This is a table in the margin. Neat!}
-		\begin{tabular}{r|l}
-			Up & Down\\
-			Hot & Cold\\
-			Black & White\\
-			Wrong & Right
-		\end{tabular}
-	\end{table}
-}
 
+Lenny Bruce is not afraid. \lipsum[8]
 
 \end{document}
