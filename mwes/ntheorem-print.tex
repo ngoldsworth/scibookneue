@@ -1,0 +1,99 @@
+\documentclass[oneside, 10pt]{memoir}
+\usepackage{float}
+\usepackage{xcolor}
+\definecolor{accol}{rgb}{1,0,0} % Defining the accent color (red by default)
+
+%Typography
+\usepackage{microtype}
+\usepackage{mathpazo}% Default Serif     font
+\usepackage{FiraSans}% Default SansSerif font
+%\usepackage{FiraMono}% Default Monospace font
+
+\usepackage[% Page Set Up
+	showframe,
+	paperheight=9in,
+	paperwidth=7.2in,
+	top=.75in,
+	bottom=.75in,
+	textwidth=4.625in,
+	right=.75in,
+	]{geometry}
+	
+
+\usepackage{amsmath}
+\usepackage{pstricks}
+\usepackage[amsthm, thmmarks, noconfig, amsmath, framed]{ntheorem}
+	\setlength{\labelsep}{1em}
+	\makeatletter
+	\newtheoremstyle{marginlab}
+	{\item[\theorem@headerfont \llap{\color{accol}{##1 ##2}}\hskip\labelsep]}%
+	{\item[\theorem@headerfont \llap{\color{accol}{##1 ##2}}\hskip\labelsep (##3)\theorem@separator]}%
+	\makeatother
+
+	% Definitions:
+	\theoremstyle{marginlab}
+	\theoremheaderfont{\normalfont}
+	\theorempreskip{0cm}
+	\theorempostskip{0cm}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{}
+	\theoremprework{}
+	\theorempostwork{}
+	\theoremseparator{:}
+	\newtheorem{mdef}{{Definition}}
+	\numberwithin{mdef}{chapter}
+
+	% Definitions:
+	\theoremstyle{marginlab}
+	\theoremheaderfont{\normalfont\bfseries}
+	\theorempreskip{0cm}
+	\theorempostskip{0cm}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{}
+	\theoremprework{}
+	\theorempostwork{}
+	\theoremseparator{:}
+	\newtheorem{mthm}{\color{accol}{Theorem}}
+	\numberwithin{mthm}{chapter}
+
+
+\usepackage{titlesec}
+	\titleformat{\section}%
+	{\Large\sffamily\bfseries}% format
+	{\llap{% label
+	    \thesection\hskip 9pt}}%
+	{0pt}% horizontal sep
+	{}% before
+
+	\titleformat{\chapter}%
+	{\color{black}\Huge\sffamily\bfseries}% format
+	{\llap{% label
+	    \thechapter\hskip 9pt}}%
+	{0pt}% horizontal sep
+	{}% before
+
+\usepackage{lipsum}
+
+\begin{document}
+\chapter{Things}
+\begin{mdef}[Residues]
+This is how we define the stuff
+A residue is the $c_{-1}$ term in the Laurent expansion of $f$:
+\begin{equation}
+f(z) = \sum_{-\infty}^\infty
+	\left[ \frac{1}{2\pi i}
+		\oint_\gamma \frac{f(z)}{(z-c)^{n+1}}dz
+	\right]
+	\left(z-c\right)^n
+\end{equation}
+\end{mdef}
+
+\lipsum[1-5]
+\section{Triangles}
+\lipsum[2]
+\begin{mthm}[Pythagorean Theorem]
+\lipsum[1]
+\end{mthm}
+
+
+\end{document}

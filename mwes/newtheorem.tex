@@ -13,23 +13,36 @@
 
 \usepackage{amssymb}
 \usepackage{amsthm}
-	\newtheoremstyle{accentcolorthm}
-		{} % Space above
-		{} % Space below
-		{} % Body font
-		{-2em} % Indent amount
-		{\color{accol}} % Theorem head formatting
-		{:} % Punctuation following the theorem head
-		{.5em} % Space after the theorem head
-		{} % Theorem head spec
-	
-	\theoremstyle{accentcolorthm}
-	\newtheorem{cdef}{Definition}[section]
+\usepackage{amsmath}
 
-	\theoremstyle{accentcolorthm}
-	\newtheorem{cexamp}{Example}[section]
+\usepackage[amsmath]{ntheorem}
+	% Define new theorem-style
+	\setlength{\labelsep}{2em}
+	\makeatletter
+	\newtheoremstyle{marginlab}
+	{\item[\theorem@headerfont \llap{##1 ##2}]}%
+	{\item[\theorem@headerfont \llap{##1 ##2}| ##3\theorem@separator\hskip\labelsep]}%
+	\makeatother
 
+	% Definitions:
+	\theoremstyle{marginlab}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{\gamma}
+	\theoremprework{}
+	\theorempostwork{}
+	\theoremseparator{}
+	\newtheorem{margindef}{\color{accol}{Definition}}
+	\numberwithin{margindef}{section}
 
+	% Theorems
+	\theoremstyle{marginlab}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{}
+	\theoremprework{{\color{accol}\hrule\smallskip}}
+	\theorempostwork{{\color{accol}\hrule\smallskip}}
+	\theoremseparator{:}
+	\newtheorem{marginthm}{\color{accol}{Theorem}}
+	\numberwithin{marginthm}{section}
 
 \begin{document}
 \section{Classification of Singularities}
@@ -43,7 +56,7 @@ it will be handy to define the \textbf{punctured disk} with center $z_0$ and rad
 \[ D_\times [z_0, R] := \left\{ z \in \mathbb{C}  : 0 < |z-z_0| < R\right\}  = D[z_0,R] \backslash \{z_0\} \]
 
 
-\begin{cdef} 
+\begin{margindef} 
 	If $f$ is holomorphic in the punctured disk $D_\times[z_0, R]$ for some $R>0$
 	but is not holomorpic at $z=z_0$, then $z_0$ is an
 	\textbf{isolated singularity} of $f$. We say that the singularity $z_0$ is
@@ -53,7 +66,7 @@ it will be handy to define the \textbf{punctured disk} with center $z_0$ and rad
 		\item a \textbf{pole} if $\displaystyle\lim_{z\to z_0} = \infty$, 
 		\item \textbf{essential} if neither a pole or removable
 \end{enumerate}
-\end{cdef}
+\end{margindef}
 \begin{proof}
 	If $A$ then $B$, as seen by Lorem Ipsum Dolor in 1956.
 \end{proof}
