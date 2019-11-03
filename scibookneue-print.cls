@@ -12,7 +12,11 @@
 	right=.75in,
 ]{geometry}
 
-\RequirePackage{amsmath}
+% Typgraphy
+\RequirePackage{microtype}%
+\RequirePackage{mathpazo}%
+\RequirePackage{FiraSans}%
+\RequirePackage{amsmath}%
 \RequirePackage{pstricks}
 \RequirePackage[
 	amsthm,
@@ -61,7 +65,7 @@
 	\numberwithin{mthm}{chapter}
 
 
-\RequirePackage[titleps]{titlesec}
+\RequirePackage[pagestyles]{titlesec}
 	% titlesec used to format the page headers, footers, and sectioning titles
 	
 	% Chapters
