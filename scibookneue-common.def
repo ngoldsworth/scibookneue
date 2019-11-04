@@ -1,11 +1,22 @@
 % Things common to both the Screen format and the Print format for scibookneue
 
 %Typography
-\RequirePackage{microtype}
+\RequirePackage[
+	activate={true,nocompatibility},
+	final,
+	tracking=true,
+	kerning=true,
+	spacing=true,
+	factor=1100,
+	stretch=10,
+	shrink=10,
+]{microtype}
 \RequirePackage{mathpazo}% Default Serif     font
 \RequirePackage{FiraSans}% Default SansSerif font
 % \RequirePackage{FiraMono}% Default Monospace font, maybe not?
+\RequirePackage{amsmath} % for math options
 
 \RequirePackage{xcolor}
-	\definecolor{accent}{rgb}{1,0,0} % Defining the accent color (red by default)
+	\definecolor{accol}{rgb}{1,0,0} % Defining the accent color (red by default)
+
 

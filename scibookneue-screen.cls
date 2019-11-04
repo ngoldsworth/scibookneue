@@ -1,6 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{scibookneue-screen}
-\LoadClass{memoir}
+\LoadClass[oneside]{memoir}
+
+%% Load elements common to both
+\input{scibookneue-common.def}
 
 \RequirePackage[% Page Setup
 	%showframe,
@@ -10,7 +13,7 @@
 	marginparsep=3em,
 	left=3.5in,
 	right=6in,
-	bottom=.5in,
+	bottom=.75in,
 	top=1in,
 ]{geometry}
 
@@ -42,6 +45,16 @@
 	  {2ex plus .2ex minus .2ex}
 	  {2em} % Determines the spacing between the "left margin column" and body type
 
+     %% PAGE STYLES
+	% Defining headers, footers, pagenumbers, etc.	
+	\newpagestyle{main}{
+	    \widenhead*{6cm}{3cm}
+	    \setfoot[\footnotesize{\thepage\quad$\vert$\quad Section \thesection: \sectiontitle}][][]
+		    {\footnotesize{\thepage\quad$\vert$\quad Section \thesection: \sectiontitle}}{}{}
+	}
+	\pagestyle{main}
+	\assignpagestyle{\chapter}{empty}
+
 \RequirePackage{amsmath}
 \RequirePackage[amsmath]{ntheorem}
 	% Define new theorem-style
@@ -52,6 +65,13 @@
 	{\item[\theorem@headerfont \llap{##1 ##2}| ##3\theorem@separator\hskip\labelsep]}%
 	\makeatother
 
+	% Define new non-numbered theorem-style
+	\makeatletter
+	\newtheoremstyle{nonumbermarginlab}
+	{\item[\theorem@headerfont \llap{##1}]}%
+	{\item[\theorem@headerfont \llap{##1}| ##3\theorem@separator\hskip\labelsep]}%
+	\makeatother
+
 	% Definitions:
 	\theoremstyle{marginlab}
 	\theorembodyfont{\normalfont}
@@ -59,15 +79,26 @@
 	\theoremprework{}
 	\theorempostwork{}
 	\theoremseparator{}
-	\newtheorem{margindef}{\color{accol}{Definition}}
-	\numberwithin{margindef}{section}
+	\newtheorem{mdef}{\color{accol}{Definition}}
+	\numberwithin{mdef}{section}
 
 	% Theorems
 	\theoremstyle{marginlab}
 	\theorembodyfont{\normalfont}
 	\theoremsymbol{}
-	\theoremprework{{\color{accol}\hrule\smallskip}}
-	\theorempostwork{{\color{accol}\hrule\smallskip}}
+	\theoremprework{{\color{accol}\smallskip\hrule\smallskip}}
+	\theorempostwork{{\color{accol}\smallskip\hrule\smallskip}}
 	\theoremseparator{:}
-	\newtheorem{marginthm}{\color{accol}{Theorem}}
-	\numberwithin{marginthm}{section}
+	\newtheorem{mthm}{\color{accol}{Theorem}}
+	\numberwithin{mthm}{chapter}
+	
+	% Proof
+	\theoremstyle{marginlab}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{}
+	\theoremprework{}
+	\theorempostwork{}
+	\theoremseparator{}
+	\newtheorem*{mproof}{\color{accol}{\itshape Proof}}
+
+

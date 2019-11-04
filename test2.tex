@@ -1,4 +1,4 @@
-\documentclass{./scibookneue-screen}
+\documentclass{./scibookneue-print}
 \usepackage{float}
 \usepackage{lipsum}
 
@@ -48,14 +48,12 @@ Hello World \lipsum[1-8]
 \lipsum[3]
 
 \lipsum[1]
-\marginpar{%
 \lstinputlisting[language=Python,
 		caption= {numerical analysis of the Goldbach conjecture for odd numbers under 6000.},
 		%firstline=16,
 		lastline=21,
 		label={lst:cal}
 		]{mwes/euler.py}
-}
 
 \lipsum[2]
 \lipsum[3]
@@ -77,7 +75,8 @@ Then the following is guaranteed:
 \begin{mproof}
 	\lipsum[5]
 \end{mproof}
-\marginpar{\centering
+\medskip
+\begin{center}
 	\begin{tikzpicture}
 	\coordinate (A) at (0, 0);
 	\coordinate (B) at (1,1.8);
@@ -92,6 +91,6 @@ Then the following is guaranteed:
 
 	\medskip
 	\small{A visual interpretation of the Cauchy Residue Theorem}
-}
-
+\end{center}
+\lipsum[1]
 \end{document}

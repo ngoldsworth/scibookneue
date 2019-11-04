@@ -2,6 +2,9 @@
 \ProvidesClass{scibookneue-print}
 \LoadClass{memoir}
 
+%% Load elements common to both
+\input{scibookneue-common.def}
+
 \RequirePackage[
 	%showframe,
 	paperheight=9in,
@@ -12,11 +15,6 @@
 	right=.75in,
 ]{geometry}
 
-% Typgraphy
-\RequirePackage{microtype}%
-\RequirePackage{mathpazo}%
-\RequirePackage{FiraSans}%
-\RequirePackage{amsmath}%
 \RequirePackage{pstricks}
 \RequirePackage[
 	amsthm,
@@ -33,6 +31,14 @@
 	{\item[\theorem@headerfont \llap{\color{accol}{##1 ##2}}\hskip\labelsep]}%
 	{\item[\theorem@headerfont \llap{\color{accol}{##1 ##2}}\hskip\labelsep (##3)\theorem@separator]}%
 	\makeatother
+
+	% Define new non-numbered theorem-style
+	\makeatletter
+	\newtheoremstyle{nonumbermarginlab}
+	{\item[\theorem@headerfont \llap{##1}]}%
+	{\item[\theorem@headerfont \llap{##1}| ##3\theorem@separator\hskip\labelsep]}%
+	\makeatother
+
 
 	% THEOREM-TYPE ENVIRONEMNTS
 	% Produce a theorem-like environment for each of the desired left-hand margin labels
@@ -58,16 +64,36 @@
 	\theorempostskip{0cm}
 	\theorembodyfont{\normalfont}
 	\theoremsymbol{}
-	\theoremprework{}
-	\theorempostwork{}
+	\theoremprework{{\color{accol}\smallskip\hrule\smallskip}}
+	\theorempostwork{{\color{accol}\smallskip\hrule\smallskip}}
+	%\theoremprework{}
+	%\theorempostwork{}
 	\theoremseparator{:}
 	\newtheorem{mthm}{\color{accol}{Theorem}}
 	\numberwithin{mthm}{chapter}
+
+	% Proof
+	\theoremstyle{marginlab}
+	\theorembodyfont{\normalfont}
+	\theoremsymbol{}
+	\theoremprework{}
+	\theorempostwork{}
+	\theoremseparator{}
+	\newtheorem*{mproof}{\color{accol}{\itshape Proof}}
 
 
 \RequirePackage[pagestyles]{titlesec}
 	% titlesec used to format the page headers, footers, and sectioning titles
 	
+     %% PAGE STYLES
+	% defining headers, footers, pagenumbers etc
+	\newpagestyle{main}{
+	    \sethead[\footnotesize{\thepage\quad$\vert$\quad Chapter \thechapter: \chaptertitle}][][]
+		    {}{}{\footnotesize{Section \thesection: \sectiontitle \quad$\vert$\quad\thepage}}
+	}
+	\pagestyle{main}
+	\assignpagestyle{\chapter}{empty}
+
 	% Chapters
 	\titleformat{\chapter}%
 	{\color{black}\Huge\sffamily\bfseries}% format
