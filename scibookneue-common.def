@@ -1,5 +1,10 @@
 % Things common to both the Screen format and the Print format for scibookneue
 
+
+\RequirePackage{xcolor}
+	\definecolor{accol}{rgb}{1,0,0} % Defining the accent color (red by default)
+
+
 %Typography
 \RequirePackage[
 	activate={true,nocompatibility},
@@ -13,10 +18,7 @@
 ]{microtype}
 \RequirePackage{mathpazo}% Default Serif     font
 \RequirePackage{FiraSans}% Default SansSerif font
-% \RequirePackage{FiraMono}% Default Monospace font, maybe not?
+\RequirePackage{FiraMono}% Default Monospace font, maybe not?
 \RequirePackage{amsmath} % for math options
-
-\RequirePackage{xcolor}
-	\definecolor{accol}{rgb}{1,0,0} % Defining the accent color (red by default)
 
 

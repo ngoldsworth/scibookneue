@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{scibookneue-print}
-\LoadClass{memoir}
+\LoadClass[oneside]{memoir}
 
 %% Load elements common to both
 \input{scibookneue-common.def}
