@@ -2,7 +2,7 @@
 
 
 \RequirePackage{xcolor}
-	\definecolor{accol}{rgb}{1,0,0} % Defining the accent color (red by default)
+	\definecolor{accent}{rgb}{1,0,0} % Defining the accent color (red by default)
 
 
 %Typography

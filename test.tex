@@ -3,6 +3,7 @@
 \usepackage{lipsum}
 
 \usepackage{xcolor}
+\definecolor{accent}{rgb}{0,0.6,0}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -14,7 +15,7 @@
     backgroundcolor=\color{backcolour},
     fillcolor=\color{backcolour},
     commentstyle=\color{codegreen},
-    keywordstyle=\color{accol},
+    keywordstyle=\color{accent},
     numberstyle=\tiny\sffamily\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\small,
@@ -92,10 +93,10 @@ Then the following is guaranteed:
 	\coordinate (B) at (1,1.8);
 	\coordinate (C) at (2, .3);
 	\foreach \n in {(A), (B), (C)}
-		\draw[color=red!90, ultra thick, ->] \n ++ (0:.5) arc (360:0:.5);
+		\draw[color=accent, ultra thick, ->] \n ++ (0:.5) arc (360:0:.5);
 	\foreach \n in {(A), (B), (C)}
 		\node at \n [circle,fill,inner sep=1pt]{};
-	\draw[color=red!80, ultra thick, ->] (0.922, 0.665)  ++ (0: 3) arc (0:360: 3);
+	\draw[color=accent, ultra thick, ->] (0.922, 0.665)  ++ (0: 3) arc (0:360: 3);
 	\node[above right] at (3, 3) {$\LARGE{\gamma}$};
 	\end{tikzpicture}
 

@@ -28,8 +28,8 @@
 	\makeatletter
 	% Make a new theoremstyle that puts a red label in th eleft margin
 	\newtheoremstyle{marginlab}
-	{\item[\theorem@headerfont \llap{\color{accol}{##1 ##2}}\hskip\labelsep]}%
-	{\item[\theorem@headerfont \llap{\color{accol}{##1 ##2}}\hskip\labelsep (##3)\theorem@separator]}%
+	{\item[\theorem@headerfont \llap{\color{accent}{##1 ##2}}\hskip\labelsep]}%
+	{\item[\theorem@headerfont \llap{\color{accent}{##1 ##2}}\hskip\labelsep (##3)\theorem@separator]}%
 	\makeatother
 
 	% Define new non-numbered theorem-style
@@ -65,12 +65,12 @@
 	\theorempostskip{0cm}
 	\theorembodyfont{\normalfont}
 	\theoremsymbol{}
-	\theoremprework{{\color{accol}\smallskip\hrule\smallskip}}
-	\theorempostwork{{\color{accol}\smallskip\hrule\smallskip}}
+	\theoremprework{{\color{accent}\smallskip\hrule\smallskip}}
+	\theorempostwork{{\color{accent}\smallskip\hrule\smallskip}}
 	%\theoremprework{}
 	%\theorempostwork{}
 	\theoremseparator{:}
-	\newtheorem{mthm}{\color{accol}{Theorem}}
+	\newtheorem{mthm}{\color{accent}{Theorem}}
 	\crefname{mthm}{theorem}{theorems}
 	\numberwithin{mthm}{chapter}
 
@@ -81,7 +81,7 @@
 	\theoremprework{}
 	\theorempostwork{}
 	\theoremseparator{}
-	\newtheorem*{mproof}{\color{accol}{\itshape Proof}}
+	\newtheorem*{mproof}{\color{accent}{\itshape Proof}}
 
 
 \RequirePackage[pagestyles]{titlesec}
@@ -95,6 +95,7 @@
 	\pagestyle{main}
 	\assignpagestyle{\chapter}{empty}
 
+     %% TITLE FORMATS
 	% Chapters
 	\titleformat{\chapter}%
 	{\color{black}\Huge\sffamily\bfseries}% format
@@ -118,7 +119,7 @@
 	colorlinks=true,
 	linkcolor=black, % In a print book, don't need the links to be colored. 
 			 % Print books aren't clickable, yet.
-	urlcolor=accol,
+	urlcolor=accent,
 	bookmarksopen=true
 ]{hyperref}
 

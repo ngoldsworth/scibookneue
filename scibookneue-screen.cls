@@ -18,8 +18,8 @@
 ]{geometry}
 
 \RequirePackage{xcolor}
-	\definecolor{accol}{rgb}{1,0,0} % Defining the accent color (red by default)
-	\definecolor{lnkcol}{rgb}{.5,0,0} % Defining a links color, that will be used later for any clickable links. Should be (ideally) a darker version of `accol`, as to not be a strain to the readers' eyes. 
+	\definecolor{accent}{rgb}{1,0,0} % Defining the accent color (red by default)
+	\definecolor{lnkcol}{rgb}{.5,0,0} % Defining a links color, that will be used later for any clickable links. Should be (ideally) a darker version of `accent`, as to not be a strain to the readers' eyes. 
 
 \RequirePackage{titlesec}
 % stolen from https://tex.stackexchange.com/questions/302658/section-headings-in-a-separate-column
@@ -46,6 +46,14 @@
 	  {2ex plus .2ex minus .2ex}
 	  {2em} % Determines the spacing between the "left margin column" and body type
 
+     %% CHAPTERS STYLING
+	\titleformat{\chapter}[display]%
+	{\color{black}\Huge\sffamily\bfseries}% format
+	{Chapter \thechapter \hskip 12pt\\}%
+	{10pt}% horizontal sep
+	{}% before
+
+
      %% PAGE STYLES
 	% Defining headers, footers, pagenumbers, etc.	
 	\newpagestyle{main}{
@@ -66,7 +74,7 @@
 	setpagesize=false,
 	colorlinks=true,
 	linkcolor=lnkcol, % Use the `lnkcol` defined above.
-	urlcolor=accol,
+	urlcolor=accent,
 	bookmarksopen=true
 ]{hyperref}
 
@@ -97,7 +105,7 @@
 	\theoremprework{}
 	\theorempostwork{}
 	\theoremseparator{}
-	\newtheorem{mdef}{\color{accol}{Definition}}
+	\newtheorem{mdef}{\color{accent}{Definition}}
 	\crefname{mdef}{definition}{definintions}
 	\numberwithin{mdef}{section}
 
@@ -105,10 +113,10 @@
 	\theoremstyle{marginlab}
 	\theorembodyfont{\normalfont}
 	\theoremsymbol{}
-	\theoremprework{{\color{accol}\smallskip\hrule\smallskip}}
-	\theorempostwork{{\color{accol}\smallskip\hrule\smallskip}}
+	\theoremprework{{\color{accent}\smallskip\hrule\smallskip}}
+	\theorempostwork{{\color{accent}\smallskip\hrule\smallskip}}
 	\theoremseparator{:}
-	\newtheorem{mthm}{\color{accol}{Theorem}}
+	\newtheorem{mthm}{\color{accent}{Theorem}}
 	\crefname{mthm}{theorem}{theorems}
 	\numberwithin{mthm}{chapter}
 	
@@ -119,7 +127,7 @@
 	\theoremprework{}
 	\theorempostwork{}
 	\theoremseparator{}
-	\newtheorem*{mproof}{\color{accol}{\itshape Proof}}
+	\newtheorem*{mproof}{\color{accent}{\itshape Proof}}
 
 
 
