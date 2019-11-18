@@ -3,7 +3,6 @@
 \usepackage{lipsum}
 
 \usepackage{xcolor}
-\definecolor{accol}{rgb}{1,0,0} % Defining the accent color (red by default)
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -36,7 +35,7 @@
 
 \begin{document}
 \chapter{Math is Cool}
-\begin{equation}
+\begin{equation}\label{eq:einst}
 	E = mc^2
 \end{equation}
 
@@ -65,8 +64,14 @@
 \lipsum[3]
 
 \section{Lorem Ipsum}
+In this section, we will look at residues and the residue theorem.
+We begin by defining some cool stuff.\\
+
+\begin{mdef}\label{mdef:res}
+	A residue is the $c_{-1}$ term's coefficient in a Laurent expansion of $f(z)$. 
+\end{mdef}
 \lipsum[1]
-\begin{mthm}
+\begin{mthm}\label{mthm:residue}
 Let $U$ be a simply connected open subset of the complex plane containing a list of points $a_1, ... a_n$, 
 and a function $f(z)$ that is defined and holomorphic on $U \ {a_1,\ldots a_n}$.
 Let $\gamma$ be a closed, rectifiable curve in $U$ which does not meet any of the $a_k$, 
@@ -95,7 +100,11 @@ Then the following is guaranteed:
 	\end{tikzpicture}
 
 	\medskip
-	\small{A visual interpretation of the Cauchy Residue Theorem}
+	\small{\sffamily A visual interpretation of the Cauchy Residue Theorem}
 }
+\lipsum[1-2]
+\lipsum[4]
 
+As stated earlier, we can examine \Cref{mthm:residue}, to see that math is hard. Einstein came up
+with \Cref{eq:einst}. For a definition of residues, see \Cref{mdef:res}
 \end{document}

@@ -55,6 +55,7 @@
 	\theorempostwork{}
 	\theoremseparator{:}
 	\newtheorem{mdef}{{Definition}}
+	\crefname{mdef}{definition}{definintions}
 	\numberwithin{mdef}{chapter}
 
 	% Theorems
@@ -70,6 +71,7 @@
 	%\theorempostwork{}
 	\theoremseparator{:}
 	\newtheorem{mthm}{\color{accol}{Theorem}}
+	\crefname{mthm}{theorem}{theorems}
 	\numberwithin{mthm}{chapter}
 
 	% Proof
@@ -87,8 +89,7 @@
 	
      %% PAGE STYLES
 	% defining headers, footers, pagenumbers etc
-	\newpagestyle{main}{
-	    \sethead[\footnotesize{\thepage\quad$\vert$\quad Chapter \thechapter: \chaptertitle}][][]
+	\newpagestyle{main}{ \sethead[\footnotesize{\thepage\quad$\vert$\quad Chapter \thechapter: \chaptertitle}][][]
 		    {}{}{\footnotesize{Section \thesection: \sectiontitle \quad$\vert$\quad\thepage}}
 	}
 	\pagestyle{main}
@@ -98,7 +99,7 @@
 	\titleformat{\chapter}%
 	{\color{black}\Huge\sffamily\bfseries}% format
 	{\llap{% label
-	    \thechapter\hskip 9pt}}%
+	    \thechapter\hskip 12pt}}%
 	{0pt}% horizontal sep
 	{}% before
 
@@ -109,3 +110,16 @@
 	    \thesection\hskip 9pt}}%
 	{0pt}% horizontal sep
 	{}% before
+
+% Cross Reference Linking
+% The `hyperref package` nicely creates in-document links not only to local files and webpages,
+% but also accross the document. 
+\usepackage[
+	colorlinks=true,
+	linkcolor=black, % In a print book, don't need the links to be colored. 
+			 % Print books aren't clickable, yet.
+	urlcolor=accol,
+	bookmarksopen=true
+]{hyperref}
+
+

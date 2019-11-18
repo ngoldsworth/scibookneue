@@ -3,11 +3,11 @@
 \usepackage{lipsum}
 
 \usepackage{xcolor}
-\definecolor{accol}{rgb}{1,0,0} % Defining the accent color (red by default)
+%\definecolor{accol}{rgb}{0.02,0.398,0.468} % Defining the accent color (red by default)
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{.99,.96,.96}
+\definecolor{backcolour}{rgb}{.96,.96,.96}
 
 \usepackage{listings}
 \renewcommand{\lstlistingname}{Program}
@@ -30,11 +30,22 @@
     showtabs=false,
     tabsize=2
 }
+
+
+
 \lstset{style=mystyle}
 
-\usepackage{tikz}
+\usepackage[
+	colorlinks=true,
+	linkcolor=accol,
+	urlcolor=accol,
+	bookmarksopen=true
+]{hyperref}
 
+\usepackage[open,openlevel=1]{bookmark}
+\usepackage{tikz}
 \begin{document}
+\tableofcontents
 \chapter{Math is Cool}
 Hello World \lipsum[1-8]
 \section{Ipsum}
@@ -49,7 +60,7 @@ Hello World \lipsum[1-8]
 
 \lipsum[1]
 \lstinputlisting[language=Python,
-		caption= {numerical analysis of the Goldbach conjecture for odd numbers under 6000.},
+		caption= {\sffamily numerical analysis of the Goldbach conjecture for odd numbers under 6000.},
 		%firstline=16,
 		lastline=21,
 		label={lst:cal}
@@ -82,15 +93,15 @@ Then the following is guaranteed:
 	\coordinate (B) at (1,1.8);
 	\coordinate (C) at (2, .3);
 	\foreach \n in {(A), (B), (C)}
-		\draw[color=red!90, ultra thick, ->] \n ++ (0:.5) arc (360:0:.5);
+	\draw[color=accol, ultra thick, ->] \n ++ (0:.5) arc (360:0:.5);
 	\foreach \n in {(A), (B), (C)}
 		\node at \n [circle,fill,inner sep=1pt]{};
-	\draw[color=red!80, ultra thick, ->] (0.922, 0.665)  ++ (0: 3) arc (0:360: 3);
+	\draw[color=accol, ultra thick, ->] (0.922, 0.665)  ++ (0: 3) arc (0:360: 3);
 	\node[above right] at (3, 3) {$\LARGE{\gamma}$};
 	\end{tikzpicture}
 
 	\medskip
-	\small{A visual interpretation of the Cauchy Residue Theorem}
+	\footnotesize{\sffamily A visual interpretation of the Cauchy Residue Theorem}
 \end{center}
 \lipsum[1]
 \end{document}

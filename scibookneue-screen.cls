@@ -19,6 +19,7 @@
 
 \RequirePackage{xcolor}
 	\definecolor{accol}{rgb}{1,0,0} % Defining the accent color (red by default)
+	\definecolor{lnkcol}{rgb}{.5,0,0} % Defining a links color, that will be used later for any clickable links. Should be (ideally) a darker version of `accol`, as to not be a strain to the readers' eyes. 
 
 \RequirePackage{titlesec}
 % stolen from https://tex.stackexchange.com/questions/302658/section-headings-in-a-separate-column
@@ -55,6 +56,23 @@
 	\pagestyle{main}
 	\assignpagestyle{\chapter}{empty}
 
+
+
+
+% Cross Reference Linking
+% The `hyperref package` nicely creates in-document links not only to local files and webpages,
+% but also accross the document. 
+\usepackage[
+	setpagesize=false,
+	colorlinks=true,
+	linkcolor=lnkcol, % Use the `lnkcol` defined above.
+	urlcolor=accol,
+	bookmarksopen=true
+]{hyperref}
+
+% For improved intra-document referencing, use the Cleveref package
+\RequirePackage{cleveref}
+
 \RequirePackage{amsmath}
 \RequirePackage[amsmath]{ntheorem}
 	% Define new theorem-style
@@ -80,6 +98,7 @@
 	\theorempostwork{}
 	\theoremseparator{}
 	\newtheorem{mdef}{\color{accol}{Definition}}
+	\crefname{mdef}{definition}{definintions}
 	\numberwithin{mdef}{section}
 
 	% Theorems
@@ -90,6 +109,7 @@
 	\theorempostwork{{\color{accol}\smallskip\hrule\smallskip}}
 	\theoremseparator{:}
 	\newtheorem{mthm}{\color{accol}{Theorem}}
+	\crefname{mthm}{theorem}{theorems}
 	\numberwithin{mthm}{chapter}
 	
 	% Proof
@@ -100,5 +120,6 @@
 	\theorempostwork{}
 	\theoremseparator{}
 	\newtheorem*{mproof}{\color{accol}{\itshape Proof}}
+
 
 
