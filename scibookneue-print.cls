@@ -2,6 +2,10 @@
 \ProvidesClass{scibookneue-print}
 \LoadClass[oneside]{memoir}
 
+% Declare we're the printed scibookneue 
+\newcommand{\@sbn@class}{memoir} % The base LaTeX class
+\newcommand{\@sbn@pkgname}{scibookneue-print}
+
 %% Load elements common to both
 \input{scibookneue-common.def}
 

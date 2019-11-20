@@ -1,5 +1,6 @@
 % Things common to both the Screen format and the Print format for scibookneue
 
+\ProvidesFile{scibookneue-common.def}[2019/11/16/ v0.1, common code for the scibookneue classes]
 
 \RequirePackage{xcolor}
 	\definecolor{accent}{rgb}{1,0,0} % Defining the accent color (red by default)
@@ -15,10 +16,24 @@
 	factor=1100,
 	stretch=10,
 	shrink=10,
-]{microtype}
+]{microtype} % Define all the little things to be right
+
+% Make some overarching font decisions (easily overide-able)
 \RequirePackage{mathpazo}% Default Serif     font
 \RequirePackage{FiraSans}% Default SansSerif font
 \RequirePackage{FiraMono}% Default Monospace font, maybe not?
 \RequirePackage{amsmath} % for math options
+
+% Some finer type considerations, mainly in the margin
+\newcommand{\@sbn@margin@par}{%
+    \setlength{\RaggedRightParindent}{0.5pc}%
+    \setlength{\JustifyingParindent}{0.5pc}%
+    \setlength{\parindent}{0.5pc}%
+    \setlength{\parskip}{0.5pc}%
+}
+
+\newcommand{\@sbn@marginfont} % store desired marginpar typography decisions in new command
+	   {\normalfont\footnotesize\sffamily}
+\newcommand{\@sbn@caption@font}{\@sbn@marginfont} % apply marginpar type style to captions
 
 

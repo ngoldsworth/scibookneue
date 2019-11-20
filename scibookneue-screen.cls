@@ -2,6 +2,11 @@
 \ProvidesClass{scibookneue-screen}
 \LoadClass[oneside]{memoir}
 
+% Declare we're the printed scibookneue 
+\newcommand{\@sbn@class}{memoir} % The base LaTeX class
+\newcommand{\@sbn@pkgname}{scibookneue-screen}
+
+
 %% Load elements common to both
 \input{scibookneue-common.def}
 
@@ -17,11 +22,14 @@
 	top=1in,
 ]{geometry}
 
+% Color management.
+% Define a default accent color and default color for links
 \RequirePackage{xcolor}
 	\definecolor{accent}{rgb}{1,0,0} % Defining the accent color (red by default)
 	\definecolor{lnkcol}{rgb}{.5,0,0} % Defining a links color, that will be used later for any clickable links. Should be (ideally) a darker version of `accent`, as to not be a strain to the readers' eyes. 
 
-\RequirePackage{titlesec}
+% Titles and 
+\RequirePackage[pagestyles]{titlesec}
 % stolen from https://tex.stackexchange.com/questions/302658/section-headings-in-a-separate-column
 % and modified
      %% SECTIONS STYLING
@@ -130,4 +138,49 @@
 	\newtheorem*{mproof}{\color{accent}{\itshape Proof}}
 
 
+% MARGIN FLOATS.
+% The goal of the scibookneue-screen class is to produce a textbook as a PDF 
+% designed for screens. Part of this is to put tables, figures, graphs, plots,
+% code, etc.. somewhere other than in the main body, unless absolutely necessary. 
+% The following float environments are responsible for this behavior
 
+% Use the `placeins` package, which provides the \FloatBarrier command,
+% forcing LaTeX to place floats before proceeding. 
+% This helps keep the float numbers in sequence
+\RequirePackage{placeins}
+
+% Begin the general float environment
+
+\newsavebox{\@sbn@margin@floatbox}
+\newenvironment{@sbn@margin@float}[2][-1.2ex]%
+   {\FloatBarrier% process all floats before here, to maintain correct sequence.
+    \begin{lrbox}{\@sbn@margin@floatbox}%
+    \begin{minipage}{\marginparwidth}% creates a ``minipage'' that fits nicely in the margin
+    \@sbn@caption@font%
+    \hbox{}\vspace*{#1}%
+    \@sbn@caption@justification%  Use the desired justification
+    \@sbn@margin@par%
+    \nodindent%
+   }
+   {\end{minipage}
+   \end{lrbox}
+   \marginpar{\usebox{\@sbn@margin@floatbox}}
+   }
+
+% Now, define a margin FIGURE. This figure will have the same name as the default figure
+% in the scibookneue-print class. The reasoning for this, is that authors should be free to switch
+% between the print and screen layouts easily.
+
+\newenvironment{sbnfigure}[1][-1.2ex]%
+ {\begin{@sbn@margin@float}[#1]{figure}}
+ {\end{@sbn@margin@float}}
+
+
+% Now, define a margin TABLE. This figure will have the same name as the default table
+% in the scibookneue-print class. The reasoning for this, is that authors should be free to switch
+% between the print and screen layouts easily.
+
+\newenvironment{sbntable}[1][-1.2ex]%
+ {\begin{@sbn@margin@float}[#1]{table}}
+ {\end{@sbn@margin@float}}
+  
