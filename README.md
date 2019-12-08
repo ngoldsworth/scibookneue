@@ -31,7 +31,7 @@ Granted, many authors in the sciences enjoy or have a desire to tinker with form
 for those who are not as enthusiastic about these things. 
 
 From an interview with [Leslie Lamport](https://lamport.azurewebsites.net/pubs/lamport-latex-interview.pdf):
-> _Three `LaTeX` mistakes that people should stop making?
+> _Three `LaTeX` mistakes that people should stop making?_
 > 
 > 1. Worrying too much about formatting and not enough about content. 2. Worrying too much about formatting and not enough about content. 3. Worrying too much about formatting and not enough about content.
 >
